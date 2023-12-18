@@ -1,9 +1,14 @@
-var n=25;
-for(let i=0;i<=n;i++){
-    document.body.innerHTML+='<div class="row">';
-    
-    for(let j=0;i<=n;j++){
-        document.body.innerHTML+='div class="gridsquare">' + (i*5+j+1) +'</div>';
-    }
-    document.body.innerHTML+='</div>';
+const container=document.querySelector('.container')
+
+function createGrid(x) {
+let gridSize=(x*x);
+for(let i=0;i<gridSize;i++){
+    let gridDiv =document.createElement('div');
+    gridDiv.className='box';
+    container.appendChild(gridDiv);
 }
+container.style.gridTemplateColumns= `repeat(${x},1fr)`
+container.style.gridTemplateRows= `repeat(${x},1fr)`
+};
+createGrid(8);
+
